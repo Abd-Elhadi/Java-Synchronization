@@ -1,0 +1,16 @@
+c3 (pc) arrived and waiting
+Connection 1: c3 Occupied
+Connection 1: c3 Performs online activity
+c1 (pone) arrived and waiting
+Connection 2: c1 Occupied
+Connection 2: c1 Performs online activity
+Connection 0: c1 Logged out
+c2 (tablet) arrived and waiting
+Connection 0: c2 Occupied
+Connection 0: c2 Performs online activity
+Connection 0: c2 Logged out
+c4 (pc) arrived and waiting
+Connection 0: c4 Occupied
+Connection 0: c4 Performs online activity
+Connection 1: c3 Logged out
+Connection 0: c4 Logged out
