@@ -18,17 +18,17 @@ public class Network {
 
         input.nextLine();
         ArrayList<Device> devices = new ArrayList<>();
-        int cnt = 1;
-        while(numOfDev-- >0){
-        	System.out.print("Device "+ (cnt) + ": ");
+        for (int i = 0; i < numOfDev; i++) {
+        	System.out.print("Device "+ (i + 1) + ": ");
         	deviceInfo = input.nextLine();
 			infoSplit = deviceInfo.split(" ");
-            Device d = new Device(infoSplit[0], infoSplit[1], router);
-            devices.add(d);
-            cnt++;
+			Device newDevice = new Device(router);
+			newDevice.setDeviceName(infoSplit[0]);
+			newDevice.setDeviceType(infoSplit[1]);
+            devices.add(newDevice);
         }
-        for(Device d:devices){
-            d.start();
+        for(Device newDevice:devices){
+            newDevice.start();
         }
     }
 }
