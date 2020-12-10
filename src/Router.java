@@ -25,17 +25,20 @@ class Router {
             try {
                 file = new BufferedWriter(new FileWriter("outputfile.txt", true));
                 file.write(device.getDeviceName() + " (" + device.getDeviceType() + ")" + " arrived\n");
-                System.out.println(device.getDeviceName() + " (" + device.getDeviceType() + ")" + " arrived");
+                //System.out.println(device.getDeviceName() + " (" + device.getDeviceType() + ")" + " arrived");
             }catch (IOException e){
                 System.err.println(e.getMessage());
             }
         }
         mySemaphore.connect();
-        int connectedDevices = 0;
+        int connectedDevices = connectionsQueue.size();
+        //device.getNumberOfConnection()
+        
         synchronized (object) {
-            connectedDevices = connectionsQueue.poll();
+            //connectedDevices = connectionsQueue.poll();
             System.out.println("Connection " + connectedDevices + ": " + device.getDeviceName() + " Occupied");
-            System.out.println("Connection " + connectedDevices + ": " + device.getDeviceName() + " Performs online activity");
+            //System.out.println("Connection " + connectedDevices + ": " + device.getDeviceName() + " Performs online activity");
+            
             try {
                 file.write("Connection " + connectedDevices + ": " + device.getDeviceName() + " Occupied\n");
                 file.write("Connection " + connectedDevices + ": " + device.getDeviceName() + " Performs online activity\n");
@@ -50,7 +53,8 @@ class Router {
             mySemaphore.release();
             int connections = device.getNumberOfConnection();
             connectionsQueue.offer(device.getNumberOfConnection());
-            System.out.println("Connection "+connections+": "+device.getDeviceName()+" Logged out");
+
+            //System.out.println("Connection "+connections+": "+device.getDeviceName()+" Logged out");
 
             BufferedWriter file = null;
             try {
